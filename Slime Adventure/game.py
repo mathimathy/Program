@@ -5,6 +5,7 @@ import player
 from pynput import keyboard
 import vector
 import colorama
+from db import *
 
 class Game:
     def __init__(self):
@@ -25,10 +26,9 @@ class Game:
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         ]
-        dic={0:" ",1:"█"}
-        coll={0:False,1:True}
-        self.map=map.Map(mapData,dic,(15,10),coll)
-        self.player=player.Player(vector.Vector(5,5),colorama.Fore.BLUE+colorama.Style.BRIGHT+"o",self.map)
+        tileMap=conn.execute("SELECT * FROM TileMap").fetchall()
+        self.map=map.Map(mapData,tileMap,(15,10))
+        self.player=player.Player(vector.Vector(5,5),conn.execute("SELECT * FROM Entity WHERE name LIKE 'player'").fetchall()[0],self.map)
         self.draw()
     
     def draw(self):
