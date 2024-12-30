@@ -2,6 +2,9 @@ import keyboardHandler
 import time
 import map
 import player
+from pynput import keyboard
+import vector
+
 class Game:
     def __init__(self):
         self.playing=True
@@ -11,7 +14,7 @@ class Game:
     def setup(self):
         mapData=[
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -22,8 +25,9 @@ class Game:
             [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
         ]
         dic={0:" ",1:"█"}
-        self.map=map.Map(mapData,dic,(15,10))
-        self.player=player.Player(3,4,"o",self.map)
+        coll={0:False,1:True}
+        self.map=map.Map(mapData,dic,(15,10),coll)
+        self.player=player.Player(vector.Vector(5,5),"o",self.map)
         self.draw()
     
     def draw(self):
@@ -33,8 +37,19 @@ class Game:
         self.needToRefresh=False
 
     def update(self):
-        if self.keyboard.pressedKey!=None:
-            print(self.keyboard.pressedKey)
+        if self.keyboard.pressedKey==keyboard.Key.up:
+            self.player.move(vector.up)
+            self.needToRefresh=True
+        elif self.keyboard.pressedKey==keyboard.Key.down:
+            self.player.move(vector.down)
+            self.needToRefresh=True
+        elif self.keyboard.pressedKey==keyboard.Key.right:
+            self.player.move(vector.right)
+            self.needToRefresh=True
+        elif self.keyboard.pressedKey==keyboard.Key.left:
+            self.player.move(vector.left)
+            self.needToRefresh=True
+
         if self.needToRefresh:
             self.draw()
         
@@ -42,4 +57,4 @@ class Game:
         self.setup()
         while self.playing:
             self.update()
-            time.sleep(0.1)
+            time.sleep(0.08)

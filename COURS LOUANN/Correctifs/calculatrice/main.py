@@ -56,7 +56,8 @@ def main():
 		elif symbol=="ln":
 			if x<=0:
 				print("Le nombre doit être supérieur à 0 !")
-			result=math.log(x)
+			else:
+				result=math.log(x)
 		elif symbol=="!":
 			if x<0:
 				print("Le nombre doit être positif !")

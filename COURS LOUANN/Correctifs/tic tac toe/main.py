@@ -45,7 +45,7 @@ def translateToCoup(r, c):
 		coup='c1'
 	elif c==0 and r==2:
 		coup="c2"
-	elif c==2 and r==0:
+	elif c==2 and r==2:
 		coup="c3"
 	return coup
 
