@@ -1,7 +1,5 @@
-import turtle
+import game
 
-tr = turtle.Turtle()
-tr.pendown()
-for i in range(4):
-    tr.forward(200)
-    tr.right(90)
+if __name__=="__main__":
+    gameEngine=game.Game()
+    gameEngine.start()
