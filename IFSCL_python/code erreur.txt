@@ -1,0 +1,3 @@
+0 -> ok
+1 -> unspecified error
+2 -> void cmd

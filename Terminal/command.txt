@@ -1,0 +1,13 @@
+	boa (my programming language)
+	python
+	ls
+	clear
+	cd
+	mkdir
+	rm
+	rmdir
+	copy
+	rename
+calc (maybe own language)
+	loc
+	exit

@@ -1,0 +1,55 @@
+def personel(mot):
+	trad="{pronom personel}"
+	analyse=[[],[],[]]
+	if mot=="ego":
+		analyse[0].append("NOMINATIF SG")
+	elif mot=="me":
+		analyse[0].append("ACCUSATIF SG")
+		analyse[0].append("ABLATIF SG")
+	elif mot=="mei":
+		analyse[0].append("GENITIF SG")
+	elif mot=="mihi":
+		analyse[0].append("DATIF SG")
+	elif mot=="tu":
+		analyse[1].append("NOMINATIF SG")
+		analyse[1].append("VOCATIF SG")
+	elif mot=="te":
+		analyse[1].append("ACCUSATIF SG")
+		analyse[1].append("ABLATIF SG")
+	elif mot=="tui":
+		analyse[1].append("GENITIF SG")
+	elif mot=="tibi":
+		analyse[1].append("DATIF SG")
+	elif mot=="se":
+		analyse[2].append("ACCUSATIF SG")
+		analyse[2].append("ABLATIF SG")
+		analyse[2].append("ACCUSATIF PL")
+		analyse[2].append("ABLATIF PL")
+	elif mot=="sui":
+		analyse[2].append("GENITIF SG")
+		analyse[2].append("GENITIF PL")
+	elif mot=="sibi":
+		analyse[2].append("DATIF SG")
+		analyse[2].append("DATIF PL")
+	elif mot=="nos":
+		analyse[0].append("NOMINATIF PL")
+		analyse[0].append("VOCATIF PL")
+		analyse[0].append("ACCUSATIF PL")
+	elif mot=="nostri" or mot=="nostrum":
+		analyse[0].append("GENITIF PL")
+	elif mot=="nobis":
+		analyse[0].append("DATIF PL")
+		analyse[0].append("ABLATIF PL")
+	elif mot=="vos":
+		analyse[1].append("NOMINATIF PL")
+		analyse[1].append("VOCATIF PL")
+		analyse[1].append("ACCUSATIF PL")
+	elif mot=="vestri" or mot=="vestrum":
+		analyse[1].append("GENITIF PL")
+	elif mot=="vobis":
+		analyse[1].append("DATIF PL")
+		analyse[1].append("ABLATIF PL")
+	if analyse==[[],[],[]]:
+		return None
+	else:
+		return [trad,analyse]
