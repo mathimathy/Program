@@ -4,6 +4,7 @@ import map
 import player
 from pynput import keyboard
 import vector
+import colorama
 
 class Game:
     def __init__(self):
@@ -27,7 +28,7 @@ class Game:
         dic={0:" ",1:"█"}
         coll={0:False,1:True}
         self.map=map.Map(mapData,dic,(15,10),coll)
-        self.player=player.Player(vector.Vector(5,5),"o",self.map)
+        self.player=player.Player(vector.Vector(5,5),colorama.Fore.BLUE+colorama.Style.BRIGHT+"o",self.map)
         self.draw()
     
     def draw(self):

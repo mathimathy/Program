@@ -1,3 +1,4 @@
+import colorama
 class Map:
     def __init__(self,map,dic,length,coll):
         self.playerMap=map
@@ -21,7 +22,7 @@ class Map:
                     drawableLine+=self.dic[el]
                 except:
                     try:
-                        drawableLine+=el.sprite
+                        drawableLine+=el.sprite+colorama.Style.NORMAL+colorama.Fore.WHITE
                     except:
                         drawableLine+=" "
             drawableMap+=drawableLine+"|\n"

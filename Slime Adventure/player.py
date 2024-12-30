@@ -11,8 +11,8 @@ class Player:
     
     def move(self, dir):
         self.oldPos=self.pos.copy()
-        pos=self.pos+dir*self.speed
+        pos=self.pos.copy()+dir*self.speed
         if not self.map.checkCollision(pos):
-            self.pos=pos
-            return True
-        return False
+            self.pos=pos.copy()
+        else:
+            self.pos=self.oldPos.copy()
