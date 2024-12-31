@@ -5,11 +5,11 @@ class Vector:
     def __add__(self, adder):
         self.x+=adder.x
         self.y+=adder.y
-        return self
+        return self.copy()
     def __mul__(self, mult):
         self.x*=mult
         self.y*=mult
-        return self
+        return self.copy()
     def copy(self):
         return Vector(self.x,self.y)
 

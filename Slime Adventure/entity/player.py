@@ -1,4 +1,4 @@
-from db import createColor
+from mod.db import createColor
 class Player:
     def __init__(self,pos,sprite,map):
         self.pos=pos

@@ -2,8 +2,8 @@ import sqlite3
 import os.path
 import colorama
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-db_path = os.path.join(BASE_DIR, "data.db")
+BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+db_path = os.path.join(BASE_DIR, "data/data.db")
 
 
 conn = sqlite3.connect(db_path)

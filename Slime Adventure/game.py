@@ -1,11 +1,11 @@
-import keyboardHandler
+import mod.keyboardHandler as keyboardHandler
 import time
 import map
-import player
+import entity.player as player
 from pynput import keyboard
-import vector
+import mod.vector as vector
 import colorama
-from db import *
+from mod.db import *
 
 class Game:
     def __init__(self):
@@ -14,20 +14,8 @@ class Game:
         self.needToRefresh=False
         
     def setup(self):
-        mapData=[
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-        ]
         tileMap=conn.execute("SELECT * FROM TileMap").fetchall()
-        self.map=map.Map(mapData,tileMap,(15,10))
+        self.map=map.Map(tileMap,(20,10))
         self.player=player.Player(vector.Vector(5,5),conn.execute("SELECT * FROM Entity WHERE name LIKE 'player'").fetchall()[0],self.map)
         self.draw()
     
