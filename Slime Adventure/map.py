@@ -4,7 +4,7 @@ import os
 class Map:
     def __init__(self,tileMap,length):
         self.coord=Vector(0,0)
-        self.playerMap=[]
+        self.map=[]
         self.oldTile=0
         self.tileMap=tileMap
         self.length=length
@@ -15,13 +15,13 @@ class Map:
         with open(filePath) as f:
             mapdata=f.read()
             mapdata=mapdata.split("\n")
-            self.playerMap=[]
+            self.map=[]
             for line in mapdata:
                 column=line.split(",")
                 intColumn=[]
                 for el in column:
                     intColumn.append(int(el))
-                self.playerMap.append(intColumn)
+                self.map.append(intColumn)
     
     def changeMap(self,dir):
         try:
@@ -31,27 +31,27 @@ class Map:
         except:
             return False
 
-    def setPlayer(self,player):
-        if player.pos.x<0:
+    def setEntity(self,entity):
+        if entity.pos.x<0:
             if self.changeMap(left):
-                player.pos.x=self.length[0]-1
-        elif player.pos.x>=self.length[0]:
+                entity.pos.x=self.length[0]-1
+        elif entity.pos.x>=self.length[0]:
             if self.changeMap(right):
-                player.pos.x=0
-        elif player.pos.y<0:
+                entity.pos.x=0
+        elif entity.pos.y<0:
             if self.changeMap(up):
-                player.pos.y=self.length[1]-1
-        elif player.pos.y>=self.length[1]:
+                entity.pos.y=self.length[1]-1
+        elif entity.pos.y>=self.length[1]:
             if self.changeMap(down):
-                player.pos.y=0
-        self.playerMap[player.oldPos.y][player.oldPos.x]=self.oldTile
-        self.oldTile=self.playerMap[player.pos.y][player.pos.x]
-        self.playerMap[player.pos.y][player.pos.x]=player
+                entity.pos.y=0
+        self.map[entity.oldPos.y][entity.oldPos.x]=self.oldTile
+        self.oldTile=self.map[entity.pos.y][entity.pos.x]
+        self.map[entity.pos.y][entity.pos.x]=entity
 
     def draw(self):
         BORDER="*"+"-"*self.length[0]+"*"
         drawableMap=BORDER+"\n"
-        for line in self.playerMap:
+        for line in self.map:
             drawableLine="|"
             for el in line:
                 try:
@@ -78,4 +78,4 @@ class Map:
         elif pos.y>=self.length[1]:
             if self.changeMap(down):
                 pos.y=0
-        return self.tileMap[self.playerMap[pos.y][pos.x]][2]
+        return self.tileMap[self.map[pos.y][pos.x]][2]

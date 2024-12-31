@@ -4,7 +4,6 @@ import map
 import entity.player as player
 from pynput import keyboard
 import mod.vector as vector
-import colorama
 from mod.db import *
 
 class Game:
