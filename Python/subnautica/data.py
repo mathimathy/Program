@@ -210,7 +210,7 @@ craft_equi = {
 		'fins': 1,
 		'polyaniline': 1,
 		'wiring kit': 1
-	};
+	},
 	'ultra-glide fins': {
 		'fins': 1,
 		'titanium': 1,
