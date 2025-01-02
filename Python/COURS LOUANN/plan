@@ -1,9 +1,9 @@
-(variables de base)
+	[variables de base]
 condition
-	[try except]
+try except
 boucle
 fonction
-tableau, liste
+tableau, dictionnaire, tuple
 classe
 module
 
