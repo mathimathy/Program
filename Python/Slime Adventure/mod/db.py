@@ -10,25 +10,28 @@ conn = sqlite3.connect(db_path)
 
 def createColor(text,color,style):
     out=""
-    if color=="RED":
-        out+=colorama.Fore.RED
-    elif color=="GREEN":
-        out+=colorama.Fore.GREEN
-    elif color=="YELLOW":
-        out+=colorama.Fore.YELLOW
-    elif color=="BLUE":
-        out+=colorama.Fore.BLUE
-    elif color=="MAGENTA":
-        out+=colorama.Fore.MAGENTA
-    elif color=="CYAN":
-        out+=colorama.Fore.CYAN
-    elif color=="WHITE":
-        out+=colorama.Fore.WHITE
-    if style=="DIM":
-        out+=colorama.Style.DIM
-    elif style=="NORMAL":
-        out+=colorama.Style.NORMAL
-    elif style=="BRIGHT":
-        out+=colorama.Style.BRIGHT
+    match color:
+        case "RED":
+            out+=colorama.Fore.RED
+        case "GREEN":
+            out+=colorama.Fore.GREEN
+        case "YELLOW":
+            out+=colorama.Fore.YELLOW
+        case "BLUE":
+            out+=colorama.Fore.BLUE
+        case "MAGENTA":
+            out+=colorama.Fore.MAGENTA
+        case "CYAN":
+            out+=colorama.Fore.CYAN
+        case _:
+            out+=colorama.Fore.WHITE
+    match style:
+        case "DIM":
+            out+=colorama.Style.DIM
+        case "BRIGHT":
+            out+=colorama.Style.BRIGHT
+        case _:
+            out+=colorama.Style.NORMAL
+
     out+=text+colorama.Style.RESET_ALL
     return out

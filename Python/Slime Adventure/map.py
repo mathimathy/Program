@@ -9,20 +9,16 @@ class Map:
         self.tileMap=tileMap
         self.length=length
         self.readMap()
-    
+
     def readMap(self):
         filePath=os.path.join(BASE_DIR, f"data/map/{self.coord.x} {self.coord.y}.map")
         with open(filePath) as f:
-            mapdata=f.read()
-            mapdata=mapdata.split("\n")
-            self.map=[]
-            for line in mapdata:
-                column=line.split(",")
-                intColumn=[]
-                for el in column:
-                    intColumn.append(int(el))
-                self.map.append(intColumn)
-    
+            map_data=f.read().split("\n")
+            self.map=[
+                [int(el) for el in line.split(',')]
+                for line in map_data
+            ]
+
     def changeMap(self,dir):
         try:
             self.coord+=dir
@@ -58,13 +54,13 @@ class Map:
                     drawableLine+=createColor(self.tileMap[el][1],self.tileMap[el][3],self.tileMap[el][4])
                 except:
                     try:
-                        drawableLine+=el.sprite
+                        drawableLine+=el
                     except:
                         drawableLine+=" "
             drawableMap+=drawableLine+"|\n"
         drawableMap+=BORDER
         print(drawableMap)
-    
+
     def checkCollision(self, pos):
         if pos.x<0:
             if self.changeMap(left):
