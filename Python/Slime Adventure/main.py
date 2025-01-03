@@ -1,5 +1,5 @@
 import game
-import mod.persistant as persistant
+from mod import persistant
 
 if __name__=="__main__":
     game_engine=game.Game()

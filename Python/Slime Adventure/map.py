@@ -54,7 +54,7 @@ class Map:
                     drawableLine+=createColor(self.tileMap[el][1],self.tileMap[el][3],self.tileMap[el][4])
                 except:
                     try:
-                        drawableLine+=el
+                        drawableLine+=el.sprite
                     except:
                         drawableLine+=" "
             drawableMap+=drawableLine+"|\n"

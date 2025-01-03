@@ -1,11 +1,11 @@
-import mod.keyboardHandler as keyboardHandler
+from mod import keyboardHandler
 import time
 import map
-import entity.player as player
+from entity import player
 from pynput import keyboard
-import mod.vector as vector
+from mod import vector
 from mod.db import *
-import mod.func as func
+from mod import func
 
 class Game:
     def __init__(self):

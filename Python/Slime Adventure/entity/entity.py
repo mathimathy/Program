@@ -17,6 +17,3 @@ class Entity:
             self.pos=pos.copy()
         else:
             self.pos=self.oldPos.copy()
-
-    def __str__(self):
-        return self.sprite
