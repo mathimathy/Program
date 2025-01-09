@@ -1,0 +1,45 @@
+2025-01-09 16:36:11 UTC
+Linux-6.8.0-50-generic-x86_64-with-glibc2.35
+Ren'Py 8.3.4.24120703
+
+Early init took 0.23s
+Loading error handling took 0.14s
+Loading script took 18.59s
+Loading save slot metadata took 0.03s
+Loading persistent took 0.00s
+ - Init at game/gui.rpy:1 took 0.41053 s.
+Running init code took 0.93s
+Loading analysis data took 0.00s
+Analyze and compile ATL took 0.64s
+Reloading save slot metadata took 0.00s
+Index archives took 0.00s
+Backing up script files to '/home/mathias/.renpy/backups/ddlc-renpy-project':
+Dump and make backups took 0.20s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc took 0.25s
+DPI scale factor: 1.000000
+Creating interface object took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.22s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.20s
+Save screen analysis took 0.08s
+Prepare screens took 0.86s
+Save pyanalysis. took 0.10s
+Save bytecode. took 0.33s
+Running _start took 0.06s
+Interface start took 0.90s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1600, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel'"
+Renderer: b'Mesa Mobile Intel\xc2\xae GM45 Express Chipset (CTG)'
+Version: b'2.1 Mesa 23.2.1-1ubuntu3.1~22.04.3'
+Display Info: None
+Screen sizes: virtual=(1280, 720) physical=(1280, 720) drawable=(1280, 720)
+Could not open 'cache/shaders.txt':
+Maximum texture size: 4096x4096
