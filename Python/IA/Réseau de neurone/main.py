@@ -14,6 +14,7 @@ sortie=[2,4,6,8,10]
 
 model.compile(loss="mean_squared_error", optimizer="adam")
 
+
 model.fit(x=entree,y=sortie, epochs=100)
 
 while True:

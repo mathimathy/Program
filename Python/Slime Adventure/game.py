@@ -7,20 +7,27 @@ from mod import vector
 from mod.db import *
 from mod import func
 import vn
+import battle
+from entity import ennemy
+from skills import basicAttack
 
 class Game:
     def __init__(self):
         self.playing=True
         self.keyboard=keyboardHandler.Keyboard()
         self.needToRefresh=False
-        self.gameMode="Map"
+        self.gameMode="Battle"
         self.VN=""
+        self.parties=[]
+        self.ennemies=[]
 
     def setup(self):
         tileMap=conn.execute("SELECT * FROM TileMap").fetchall()
         self.map=map.Map(tileMap,(20,10))
         self.vn = vn.VN(self.keyboard)
-        self.player=player.Player(vector.Vector(5,5),conn.execute("SELECT * FROM Entity WHERE name LIKE 'player'").fetchall()[0],self.map)
+        self.battle = battle.Battle(self.keyboard)
+        self.player=player.Player(vector.Vector(5,5),conn.execute("SELECT * FROM Entity WHERE name LIKE 'player'").fetchall()[0],self.map,self.keyboard)
+        self.parties.append(self.player)
         self.draw()
 
     def draw(self):
@@ -53,12 +60,18 @@ class Game:
     def playVN(self):
         self.VN="debug"
         self.vn.run(self.VN)
+    
+    def playBattle(self):
+        self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":10,"mana":5,"ATK":1,"DEF":0},{"Attaque Basique":basicAttack.Run}))
+        self.battle.run(self.parties, self.ennemies)
 
     def update(self):
         if self.gameMode=="Map":
             self.playMap()
         elif self.gameMode=="VN":
             self.playVN()
+        elif self.gameMode=="Battle":
+            self.playBattle()
         
 
     def start(self):
