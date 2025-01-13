@@ -2,10 +2,13 @@ from entity.entity import Entity
 from pynput import keyboard
 from skills import basicAttack
 from mod import func
+import colorama
+import time
 class Player(Entity):
     def __init__(self,pos,sprite,map,keyboard):
         super().__init__(pos,sprite,map,keyboard)
         self.skills={"Attaque Basique": basicAttack.Run}
+        self.name=colorama.Fore.BLUE+"Player"+colorama.Fore.RESET
         self.stats={
             "hp":200,
             "mana":100,
@@ -31,6 +34,7 @@ class Player(Entity):
             keyCode[keyboard.KeyCode.from_char(str(index))]=index
         print(prompt)
         checking=True
+        time.sleep(0.5)
         while checking:
            for key,index in keyCode.items():
                if self.k.pressedKey==key:

@@ -1,5 +1,6 @@
 from pynput import keyboard as k
 from mod import func
+import time
 def Run(player,ennemies,keyboard):
     func.clear()
     prompt=""
@@ -9,11 +10,15 @@ def Run(player,ennemies,keyboard):
         keyCode[k.KeyCode.from_char(str(index))]=index
     print(prompt)
     checking=True
+    time.sleep(0.5)
     while checking:
         for key,index in keyCode.items():
             if keyboard.pressedKey==key:
-                Attack(player,ennemies[index])
+                func.clear()
+                if Attack(player,ennemies[index])==True:
+                    print(f'{ennemies[index].name} est mort !')
+                    del ennemies[index]
                 checking=False
 
 def Attack(player,entity):
-    entity.dammage(player.stats["ATK"])
+    return entity.dammage(player.stats["ATK"])

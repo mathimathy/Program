@@ -10,6 +10,7 @@ import vn
 import battle
 from entity import ennemy
 from skills import basicAttack
+import copy
 
 class Game:
     def __init__(self):
@@ -63,7 +64,11 @@ class Game:
     
     def playBattle(self):
         self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":10,"mana":5,"ATK":1,"DEF":0},{"Attaque Basique":basicAttack.Run}))
-        self.battle.run(self.parties, self.ennemies)
+        winning = self.battle.run(self.parties, self.ennemies)
+        if winning:
+            self.winBattle()
+        else:
+            self.lose()
 
     def update(self):
         if self.gameMode=="Map":
@@ -79,3 +84,16 @@ class Game:
         while self.playing:
             self.update()
             time.sleep(0.08)
+    
+    def lose(self):
+        func.clear()
+        print("Vous avez perdu !")
+        self.playing=False
+    
+
+    def winBattle(self):
+        func.clear()
+        print("Bravo !")
+        time.sleep(2)
+        self.gameMode="Map"
+        self.needToRefresh=True
