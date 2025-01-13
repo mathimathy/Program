@@ -16,9 +16,6 @@ class Ennemy(Entity):
     def activateSkill(self, skill, ennemies):
         self.skills[skill](self,ennemies,self.k)
     
-    def learnSkill(self, name, function):
-        self.skills[name]=function
-    
     def attack(self,ennemies):
         prompt=""
         keyCode={}

@@ -10,7 +10,6 @@ import vn
 import battle
 from entity import ennemy
 from skills import basicAttack
-import copy
 
 class Game:
     def __init__(self):

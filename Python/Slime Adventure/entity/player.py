@@ -18,6 +18,8 @@ class Player(Entity):
     
     def dammage(self, dmg):
         self.stats["hp"]-=(dmg-self.stats["DEF"])
+        if self.stats["hp"]<=0:
+            return True
     
     def activateSkill(self, skill, ennemies):
         self.skills[skill](self,ennemies,self.k)
