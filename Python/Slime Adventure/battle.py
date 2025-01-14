@@ -33,7 +33,7 @@ class Battle:
                 print("1. Attaquer\n2. Statistiques")
     
     def ennemyTurn(self, ennemy):
-        pass
+        ennemy.attack(self.parties)
 
     def run(self, parties, ennemies):
         self.parties=parties

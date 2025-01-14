@@ -62,7 +62,7 @@ class Game:
         self.vn.run(self.VN)
     
     def playBattle(self):
-        self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":10,"mana":5,"ATK":1,"DEF":0},{"Attaque Basique":basicAttack.Run}))
+        self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":50,"mana":5,"ATK":10,"DEF":0},{"Attaque Basique":(basicAttack.Run,0)}))
         winning = self.battle.run(self.parties, self.ennemies)
         if winning:
             self.winBattle()
