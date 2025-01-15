@@ -8,15 +8,15 @@ from mod.db import *
 from mod import func
 import vn
 import battle
-from entity import ennemy
-from skills import basicAttack
+#from entity import ennemy
+#from skills import basicAttack
 
 class Game:
     def __init__(self):
         self.playing=True
         self.keyboard=keyboardHandler.Keyboard()
         self.needToRefresh=False
-        self.gameMode="Battle"
+        self.gameMode="Map"
         self.VN=""
         self.parties=[]
         self.ennemies=[]
@@ -58,11 +58,11 @@ class Game:
             self.draw()
         
     def playVN(self):
-        self.VN="debug"
+        #self.VN="debug"
         self.vn.run(self.VN)
     
     def playBattle(self):
-        self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":50,"mana":5,"ATK":10,"DEF":0},{"Attaque Basique":(basicAttack.Run,0)}))
+        #self.ennemies.append(ennemy.Ennemy(vector.none,[0,0,"E","WHITE","BRIGHT"],None,self.keyboard,"Squelette",{"hp":50,"mana":5,"ATK":10,"DEF":0},{"Attaque Basique":(basicAttack.Run,0)}))
         winning = self.battle.run(self.parties, self.ennemies)
         if winning:
             self.winBattle()
