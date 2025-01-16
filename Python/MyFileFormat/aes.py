@@ -168,8 +168,6 @@ class AES:
             d = self.invSubByte(d)
             d = self.addRoundKey(d, lastKey)
             out.append(d)
-
-        print(out[0],out[1])
         outMsg = self.invCreateMsg(out)
         return outMsg
         
