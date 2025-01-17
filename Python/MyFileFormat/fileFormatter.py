@@ -1,8 +1,15 @@
 import aes
 import sign
+from matrice import Matrice
+import random
 class FileFormatter:
     def __init__(self, key):
+        if key == None:
+            key = self.generateKey()
         self.key = key
+    
+    def generateKey(self):
+        return [Matrice([random.randint(0,255) for _ in range(4)]) for _ in range(4)]
     
     def save(self, data, outputFile):
         a = aes.AES(self.key)
