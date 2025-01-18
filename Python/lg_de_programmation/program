@@ -1,7 +1,0 @@
-str.nbre.5
-str.nbres.3
-if.equal.str.nbre.str.nbres
-print.true
-else
-print.false
-end
