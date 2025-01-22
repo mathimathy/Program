@@ -1,5 +1,5 @@
 import math
-from basic.number import *
+from MyLibrary.math.mymath.basic.number import *
 def starSimple(aN, bN):
     a=aN.id
     b=bN.id

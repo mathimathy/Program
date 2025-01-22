@@ -1,7 +1,7 @@
-	[variables de base]
-condition
+	variables de base
+	condition
+	boucle
 try except
-boucle
 fonction
 tableau, dictionnaire, tuple
 classe
@@ -11,9 +11,9 @@ module
 
 
 tic tac toe
-	[+ou-]
+	+ou-
 cryptage
-	[calculatrice]
+	calculatrice
 chat du pasteur
 pendu
 jeu de combat

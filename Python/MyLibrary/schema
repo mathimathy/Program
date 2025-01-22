@@ -1,0 +1,36 @@
+math/
+    p_adic/
+    (-)matrice
+    (derivate)
+    myMath/
+        -basic/
+            -number
+            -op
+        ext/
+            func
+            (-)geo
+crypto/
+    (-)aes
+    -rsa
+    -signature
+    -hash
+    gibberish
+    (blockchain)
+socket/
+    server
+    client
+data/
+    -queue
+    graph
+    tree
+    -stack
+gui/
+utils/
+    -error
+    -lambdaF
+    utils
+game/
+    VN/
+    BATTLE/
+    MAP/
+file/

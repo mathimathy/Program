@@ -1,5 +1,5 @@
-from basic.number import *
-from basic.op import opposite, absolute
+from MyLibrary.math.mymath.basic.number import *
+from MyLibrary.math.mymath.basic.op import opposite, absolute
 
 class P:
     def __init__(self, x,y):
