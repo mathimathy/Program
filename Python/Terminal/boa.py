@@ -1,5 +1,26 @@
 import sys
 import os
+import pickle
+import time
+
+class Stack:
+    def __init__(self):
+        self._d = []
+    
+    def push(self, value):
+        self._d.append(value)
+    
+    def pop(self):
+        if len(self._d)>0:
+            data = self._d[-1]
+            del self._d[-1]
+            return data
+        else:
+            raise IndexError("You're trying to pop the stack but it's empty")
+    
+    def empty(self):
+        self._d=[]
+
 class Interpreter:
 
 	def __init__(self, home):
@@ -13,13 +34,21 @@ class Interpreter:
 		self.fctAdress={}
 		self.inFct=False
 		self.callAdress=None
+		self.stack=Stack()
 
 	def interprete(self, line):
 		if line=="/":
-			if len(self.jmpPt)==1 or len(self.jmpPt)==0:
-				self.cursor=len(self.code)
+			if self.cmd==7:
+				if os.path.isfile(self.home+"out.bdata"):
+					with open(self.home+"out.bdata", "rb") as f:
+						self.stack = pickle.load(f)
+				else:
+					self.stack.empty()
 			else:
-				del self.jmpPt[-1]
+				if len(self.jmpPt)==0:
+					self.cursor=len(self.code)
+				else:
+					del self.jmpPt[-1]
 		elif line=="":
 			pass
 		elif line=="}":
@@ -94,29 +123,40 @@ class Interpreter:
 				self.cmd=4
 			elif line[0]=="*":
 				self.cmd=5
+			elif line[0]=="§":
+				self.cmd=6
+			elif line[0]=="µ":
+				self.cmd=7
 			else:
 				self.error=f"[{self.cursor+1}] The Command doesn't exist"
-		elif line[-2]=="-":
-			if self.cmd==0:
-				self.var[line[-1]]=line[:-2]
-			if self.cmd==5:
-				self.var[line[-1]]=self.var[line[0]]
 		elif line[-1]=="-":
 			if self.cmd==4:
 				self.callAdress=self.cursor
 				self.cursor=self.fctAdress[line[0]]
 				self.inFct=True
-			if self.cmd==2:
+			elif self.cmd==2:
 				if self.var[line[:-1]]=="128":
 					print("\n", end="")
 				else:
 					print(chr(int(self.var[line[:-1]])), end="")
+			elif self.cmd==6:
+				self.stack.push(self.var[line[:-1]])
+			elif self.cmd==7:
+				with open(self.home+"out.bdata", "wb+") as f:
+					pickle.dump(self.stack, f)
+		elif line[-2]=="-":
+			if self.cmd==0:
+				self.var[line[-1]]=line[:-2]
+			if self.cmd==5:
+				self.var[line[-1]]=self.var[line[0]]
 		elif line[-1]=="/":
 			if self.cmd==2:
 				if self.var[line[:-1]]=="128":
 					print("\n", end="")
 				else:
 					print(self.var[line[:-1]], end="")
+			elif self.cmd==6:
+				self.var[line[:-1]]=self.stack.pop()
 		elif line[-2]==".":
 			if self.cmd==1:
 				try:
@@ -169,6 +209,9 @@ class Interpreter:
 				i+=1
 		elif line[:2]=="//":
 			pass
+		elif line[-1]=="$":
+			print("")
+			time.sleep(int(self.var[line[:-1]]))
 		
 	def execute(self):
 		while self.cursor<len(self.code):
@@ -207,8 +250,12 @@ def main(path, home):
 	interpreter.read(path)
 
 if __name__=="__main__":
-	file = sys.argv[1].split("/")
-	dct = os.getcwd()
+	file = sys.argv[1]
+	if file[0]=="/":
+		dct=""
+	else:
+		dct = os.getcwd()
+	file=file.split("/")
 	if len(file)==1:
 		main(file[0], dct+"/")
 	else:
