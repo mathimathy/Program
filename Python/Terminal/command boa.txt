@@ -1,0 +1,29 @@
+$ registre commande
+@ assignation var
+n-a a=n
+& écriture
+a- écrit a
+a/ écrit a tel quel
+# operation
+. +
+, -
+; /
+: *
+/ **
+\ %
+! comparaison
+. =
+, <
+; >
+/ fonction
+f- appel f
+* copie
+a-b b=a
+/ end
+[] boucle
+
+%-$ input (in ascii)
+:-$ input tel quel
+
+
+- assignation

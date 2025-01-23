@@ -8,6 +8,5 @@
 	rmdir
 	copy
 	rename
-calc (maybe own language)
 	loc
 	exit

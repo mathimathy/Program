@@ -207,8 +207,12 @@ def main(path, home):
 	interpreter.read(path)
 
 if __name__=="__main__":
-	file = sys.argv[1].split("/")
-	dct = os.getcwd()
+	file = sys.argv[1]
+	if file[0]=="/":
+		dct=""
+	else:
+		dct = os.getcwd()
+	file=file.split("/")
 	if len(file)==1:
 		main(file[0], dct+"/")
 	else:

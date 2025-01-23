@@ -1,0 +1,17 @@
+using landmark
+
+name: "Hello World"
+desc: "Program to print hello world"
+etc: "etc"
+lines: 8
+value: 7,2
+authors: {
+    Mathias: {
+        age: 17
+        country: landmark.be
+    }
+    Louann: {
+        age: 15
+        country: landmark.fr
+    }
+}
