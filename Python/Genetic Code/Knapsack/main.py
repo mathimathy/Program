@@ -63,7 +63,7 @@ if __name__=="__main__":
         {"weight": 5, "value": 6},
         {"weight": 9, "value": 10},
     ]
-    max_weight = 15
+    max_weight = 10
 
     POPULATION_SIZE = 20
     MUTATION_RATE = 0.1

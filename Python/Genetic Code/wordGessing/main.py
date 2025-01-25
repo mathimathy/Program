@@ -52,10 +52,10 @@ def genetic_algorithm():
             break
 
 if __name__=="__main__":
-    TARGET_WORD="Spagghetti"
+    TARGET_WORD="Chalunopentaxophile"
     WORD_LENGTH=len(TARGET_WORD)
 
     POPULATION_SIZE = 200
-    MUTATION_RATE = 0.1
-    NUM_GENERATIONS = 500
+    MUTATION_RATE = 0.10
+    NUM_GENERATIONS = 5000
     genetic_algorithm()

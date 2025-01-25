@@ -33,6 +33,7 @@ class Interpreter:
 		self.code=None
 		self.fctAdress={}
 		self.inFct=False
+		self.cond=0
 		self.callAdress=None
 		self.stack=Stack()
 
@@ -51,10 +52,14 @@ class Interpreter:
 					del self.jmpPt[-1]
 		elif line=="":
 			pass
+		elif line[:2]=="//":
+			pass
 		elif line=="}":
-			if self.inFct:
+			if self.inFct and self.cond==0:
 				self.cursor=self.callAdress
 				self.inFct=False
+			else:
+				self.cond-=1
 		elif line=="[":
 			self.jmpPt.append(self.cursor)
 		elif line=="]":
@@ -78,6 +83,7 @@ class Interpreter:
 								self.cursor=i
 								return
 							i+=1
+					self.cond+=1
 				elif line[2]==",":
 					if int(self.var[line[1]])>=int(self.var[line[3]]):
 						i=self.cursor
@@ -92,6 +98,7 @@ class Interpreter:
 								self.cursor=i
 								return
 							i+=1
+					self.cond+=1
 				elif line[2]==";":
 					if int(self.var[line[1]])<=int(self.var[line[3]]):
 						i=self.cursor
@@ -106,6 +113,7 @@ class Interpreter:
 								self.cursor=i
 								return
 							i+=1
+					self.cond+=1
 		elif line[1:]=="-$":
 			if line[0]=="@":
 				self.cmd=0
@@ -132,7 +140,7 @@ class Interpreter:
 		elif line[-1]=="-":
 			if self.cmd==4:
 				self.callAdress=self.cursor
-				self.cursor=self.fctAdress[line[0]]
+				self.cursor=self.fctAdress[line[:-1]]
 				self.inFct=True
 			elif self.cmd==2:
 				if self.var[line[:-1]]=="128":
@@ -207,19 +215,21 @@ class Interpreter:
 					self.cursor=i
 					return
 				i+=1
-		elif line[:2]=="//":
-			pass
 		elif line[-1]=="$":
 			print("")
 			time.sleep(int(self.var[line[:-1]]))
 		
 	def execute(self):
 		while self.cursor<len(self.code):
-			self.interprete(self.code[self.cursor])
-			if self.error!=None:
-				print(self.error)
-				return
-			self.cursor+=1
+			try:
+				self.interprete(self.code[self.cursor])
+				if self.error!=None:
+					print(self.error)
+					return
+				self.cursor+=1
+			except Exception as e:
+				print(f"An error occured at line {self.cursor+1}: {e}")
+				quit()
 
 	def read(self, path):
 		if path[-4:]==".def":

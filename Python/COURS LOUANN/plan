@@ -1,22 +1,13 @@
 	variables de base
 	condition
 	boucle
-try except
-fonction
+	try except
 tableau, dictionnaire, tuple
+fonction
+portee variable
+file
 classe
-module
-
-
-
-
-tic tac toe
-	+ou-
-cryptage
-	calculatrice
-chat du pasteur
-pendu
-jeu de combat
+module (sqlite, time, random, pickle, math, /numpy/, /matplotlib/, json, colorama, os, sys, abstract class, dataclass, /socket/, /django/, /cython/, /MyLibrary/, /tkinter/, /pygame/, /pynput/)
 
 
 
