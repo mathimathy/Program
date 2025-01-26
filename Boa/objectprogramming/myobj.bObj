@@ -1,0 +1,5 @@
+obj[
+	a:get
+	b:get
+	f: func.bObj->a
+]
