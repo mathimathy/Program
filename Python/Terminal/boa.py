@@ -271,6 +271,8 @@ class Interpreter:
 			l=d.split(":")
 			if l[1]=="get":
 				obj.var[l[0]]=self.stack.pop()
+			elif (d:=l[1].split(" "))[0]=="set":
+				obj.var[l[0]]=d[1]
 			else:
 				obj.addFunc(l[0], l[1].replace(" ", ""))
 		return obj

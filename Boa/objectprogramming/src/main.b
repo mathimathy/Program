@@ -9,9 +9,13 @@ a-
 obj-o
 f/o
 a.o
+c.o
 §-$
+c/
 a/
 &-$
+c/
+l-
 a/
 l-
 ^-$
