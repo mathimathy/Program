@@ -1,5 +1,7 @@
-obj[
+obj{
 	a:get
 	b:get
-	f: func.bObj->a
-]
+	f:func.bFunc
+	g:gfunc.bFunc
+	s:stack.bFunc
+}

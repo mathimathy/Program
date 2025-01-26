@@ -42,4 +42,9 @@ a/ pull in a
 - save stack to file
 / load file to stack
 
+^ obj
+obj-o o=obj()
+f/o o.f()
+a.o push(o.a)
+
 - assignation
