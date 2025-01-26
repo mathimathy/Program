@@ -1,0 +1,7 @@
+obj{
+	a:get
+	b:get
+	f:obj/func/func.bFunc
+	g:obj/func/gfunc.bFunc
+	s:obj/func/stack.bFunc
+}
