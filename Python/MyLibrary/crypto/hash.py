@@ -1,4 +1,3 @@
-from pprint import pprint
 def chainMod(msg, turn=20, mod=256, reverse=False):
         data = [ord(letter) for letter in msg]
         lastNumber = 1
