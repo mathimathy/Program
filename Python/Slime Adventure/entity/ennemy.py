@@ -1,6 +1,4 @@
 from entity.entity import Entity
-from pynput import keyboard
-from skills import basicAttack
 import random
 class Ennemy(Entity):
     def __init__(self,pos,sprite,map,keyboard, name, stats, skills):

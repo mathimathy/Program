@@ -1,6 +1,4 @@
-from mod.character import Character
-
-def Run(chars: dict[str, Character]):
+def Run(chars):
     chars["emily"].say("Coucou")
     chars["emily"].choice("Aimes-tu le chocolat ?", [
         ("Oui", saidYes),
