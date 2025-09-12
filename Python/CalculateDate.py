@@ -29,7 +29,7 @@ class Time:
 		# [int_years, str_month, int_days, int_hour, str_moment, int_min, str_quadrant, int_sec]
 		int_years=self.greg[0]
 		int_month=0
-		int_days=self.greg[1]
+		int_days=round(self.greg[1])
 		if int_days>45:
 			int_month+=1
 			int_days-=45
@@ -97,10 +97,11 @@ class Time:
 
 		int_sec=self.greg[4]
 
-		self.rel=[int_years, str_month, int_days, str_moment, int_hours, str_quadrant, int_min, int_sec]
+		self.rel=[int_years, int_days, str_month, int_hours, str_moment, str_quadrant, int_min, int_sec]
 
 
 now=Time(time.time())
 now.calculateGreg()
+print(now.greg)
 now.calculateRel()
 print(now.rel)

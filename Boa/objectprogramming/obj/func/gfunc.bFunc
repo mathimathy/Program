@@ -1,5 +1,0 @@
-get a
-get b
-#-$
-b:a
-ret a->b

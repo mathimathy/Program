@@ -1,6 +1,7 @@
 math/
     p_adic/
     (-)matrice
+    (-)hex
     (derivate)
     myMath/
         -basic/
@@ -10,7 +11,7 @@ math/
             func
             (-)geo
 crypto/
-    (-)aes
+    -aes
     -rsa
     -signature
     -hash
@@ -34,3 +35,4 @@ game/
     BATTLE/
     MAP/
 file/
+    -etf

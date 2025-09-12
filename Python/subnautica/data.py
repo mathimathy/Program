@@ -62,7 +62,7 @@ craft_item = {
 	},
 	'battery': {
 		'acid mushroom': 2,
-		'copper ore'
+		'copper ore': 1
 	},
 	'powercell': {
 		'battery': 2,

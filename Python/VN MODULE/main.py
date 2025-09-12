@@ -14,6 +14,6 @@ def no():
     n.say("Dommage...")
     
 n.choice("Comment vas-tu ?", [
-    ["Oui", yes],
-    ["No", no]
+    ["Ca va", yes],
+    ["Boff...", no]
 ])()
