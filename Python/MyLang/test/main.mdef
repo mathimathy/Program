@@ -1,0 +1,11 @@
+mainFile: "main.ph"
+funcDef: {
+    "func.def"
+}
+funcFile: {
+    "func.ph"
+}
+funcName: {
+    "whoAmI" -> 0,
+    "func2" -> 0
+}
