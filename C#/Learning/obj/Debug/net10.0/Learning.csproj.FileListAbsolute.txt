@@ -1,0 +1,15 @@
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/bin/Debug/net10.0/Learning
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/bin/Debug/net10.0/Learning.deps.json
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/bin/Debug/net10.0/Learning.runtimeconfig.json
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/bin/Debug/net10.0/Learning.dll
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/bin/Debug/net10.0/Learning.pdb
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.GeneratedMSBuildEditorConfig.editorconfig
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.AssemblyInfoInputs.cache
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.AssemblyInfo.cs
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.csproj.CoreCompileInputs.cache
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.sourcelink.json
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.dll
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/refint/Learning.dll
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.pdb
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/Learning.genruntimeconfig.cache
+/media/mathias/DATA/PROGRAMMATION/Program/C#/Learning/obj/Debug/net10.0/ref/Learning.dll
